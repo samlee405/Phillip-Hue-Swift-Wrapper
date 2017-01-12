@@ -10,12 +10,10 @@ import Foundation
 import SwiftyJSON
 
 class HueWrapper {
-    
-    // base url : http://172.30.5.4/api/Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT/
-    
+    static let sharedInstance = HueWrapper()
     let session = URLSession.shared
     
-    func getLights(completionHandler: @escaping ((_ result : JSON) -> [String])) {
+    func getLights(completionHandler: @escaping ((_ result : [String]) -> Void)) {
         let url = URL(string: "http://172.30.5.4/api/Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT/lights/")!
         
         var request = URLRequest(url: url)
@@ -25,7 +23,12 @@ class HueWrapper {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let requestedData = data {
                 let convertedData = JSON(data: requestedData)
-                completionHandler(convertedData)
+                var dataToReturn = [String]()
+                for (key, _) in convertedData {
+                    dataToReturn.append(key)
+                }
+                
+                completionHandler(dataToReturn)
             }
             else {
                 print("Error getting lights")
@@ -35,7 +38,7 @@ class HueWrapper {
         task.resume()
     }
     
-    func getGroups(completionHandler: @escaping ((_ result : JSON) -> [String])) {
+    func getGroups(completionHandler: @escaping ((_ result : [String]) -> Void)) {
         let url = URL(string: "http://172.30.5.4/api/Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT/groups/")!
         
         var request = URLRequest(url: url)
@@ -45,7 +48,12 @@ class HueWrapper {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let requestedData = data {
                 let convertedData = JSON(data: requestedData)
-                completionHandler(convertedData)
+                var dataToReturn = [String]()
+                for (key, _) in convertedData {
+                    dataToReturn.append(key)
+                }
+                
+                completionHandler(dataToReturn)
             }
             else {
                 print("Error getting groups")
@@ -55,29 +63,28 @@ class HueWrapper {
         task.resume()
     }
     
-    func turnOffLights(allLights: [String]) { // change to use "group 0"
-        for light in allLights {
-            let urlString = "http://172.30.5.4/api/Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT/" + light + "/state"
-            let url = URL(string: urlString)!
-            
-            var request = URLRequest(url: url)
-            request.httpMethod = "PUT"
-            
-            let dataToSend = "on=true"
-            
-            request.httpBody = dataToSend.data(using: String.Encoding.utf8)
-            
-            let task = session.dataTask(with: request) { (data, response, error) in
-                if let returnResponse = response {
-                    print(returnResponse)
-                }
-                else {
-                    print("Error turning off light \(light)")
-                }
+    func turnOffLights() {
+        let urlString = "http://172.30.5.4/api/Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT/groups/0/action"
+        let url = URL(string: urlString)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        
+        let dataToSend = "{\"on\": false}"
+        
+        request.httpBody = dataToSend.data(using: String.Encoding.utf8)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let requestedData = data {
+                let convertedData = JSON(data: requestedData)
+                print(convertedData)
             }
-            
-            task.resume()
+            else {
+                print("Error turning off all lights")
+            }
         }
+        
+        task.resume()
     }
     
     func turnOnLights(group: String) {
@@ -87,13 +94,14 @@ class HueWrapper {
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         
-        let dataToSend = "on=true"
+        let dataToSend = "{\"on\": true}"
         
         request.httpBody = dataToSend.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            if let returnResponse = response {
-                print(returnResponse)
+            if let requestedData = data {
+                let convertedData = JSON(data: requestedData)
+                print(convertedData)
             }
             else {
                 print("Error turning on light group")
@@ -109,17 +117,16 @@ class HueWrapper {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let dataToSend: [String:Any] = ["name": roomName,
-                                        "type": "LightGroup",
-                                        "class": "Living room",
-                                        "lights": lights]
+        let dataToSend = "{\"name\": \"\(roomName)\", \"type\": \"LightGroup\", \"lights\": \(lights)}"
         
-        let castedDataToSend = try? JSONSerialization.data(withJSONObject: dataToSend, options: JSONSerialization.WritingOptions.prettyPrinted)
-        request.httpBody = castedDataToSend
+        print(dataToSend)
+        
+        request.httpBody = dataToSend.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request) { (data, response, error) in
-            if let returnResponse = response {
-                print(returnResponse)
+            if let requestedData = data {
+                let convertedData = JSON(data: requestedData)
+                print(convertedData)
             }
             else {
                 print("Error creating group")
