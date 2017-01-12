@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E50AC3BF1CAC3B9DB672474 /* Pods_HueHTTPRequestTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 643A43BC76071C0F9C2DE83F /* Pods_HueHTTPRequestTest.framework */; };
+		EF6724121E26F2E1009480D1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF6724111E26F2E1009480D1 /* SwiftyJSON.framework */; };
 		EFA913271E26C52F00F00D91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA913261E26C52F00F00D91 /* AppDelegate.swift */; };
 		EFA913291E26C52F00F00D91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA913281E26C52F00F00D91 /* ViewController.swift */; };
 		EFA9132C1E26C52F00F00D91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFA9132A1E26C52F00F00D91 /* Main.storyboard */; };
 		EFA9132E1E26C52F00F00D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFA9132D1E26C52F00F00D91 /* Assets.xcassets */; };
 		EFA913311E26C52F00F00D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFA9132F1E26C52F00F00D91 /* LaunchScreen.storyboard */; };
+		EFA913391E26D00F00F00D91 /* HueWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA913381E26D00F00F00D91 /* HueWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39F59A8958A608FFF1D48DF1 /* Pods-HueHTTPRequestTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueHTTPRequestTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-HueHTTPRequestTest/Pods-HueHTTPRequestTest.release.xcconfig"; sourceTree = "<group>"; };
+		57FB8FEEA9C3067B59A06AA2 /* Pods-HueHTTPRequestTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HueHTTPRequestTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HueHTTPRequestTest/Pods-HueHTTPRequestTest.debug.xcconfig"; sourceTree = "<group>"; };
+		643A43BC76071C0F9C2DE83F /* Pods_HueHTTPRequestTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HueHTTPRequestTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF6724111E26F2E1009480D1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/HueHTTPRequestTest-dalcwauehxdayoblbpojajwrlpvq/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		EFA913231E26C52F00F00D91 /* HueHTTPRequestTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueHTTPRequestTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA913261E26C52F00F00D91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFA913281E26C52F00F00D91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,7 @@
 		EFA9132D1E26C52F00F00D91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFA913301E26C52F00F00D91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFA913321E26C52F00F00D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA913381E26D00F00F00D91 /* HueWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HueWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6724121E26F2E1009480D1 /* SwiftyJSON.framework in Frameworks */,
+				0E50AC3BF1CAC3B9DB672474 /* Pods_HueHTTPRequestTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C7087C54DB07F233B545016 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57FB8FEEA9C3067B59A06AA2 /* Pods-HueHTTPRequestTest.debug.xcconfig */,
+				39F59A8958A608FFF1D48DF1 /* Pods-HueHTTPRequestTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D33232CE1D717B0CA38250D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF6724111E26F2E1009480D1 /* SwiftyJSON.framework */,
+				643A43BC76071C0F9C2DE83F /* Pods_HueHTTPRequestTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EFA9131A1E26C52F00F00D91 = {
 			isa = PBXGroup;
 			children = (
 				EFA913251E26C52F00F00D91 /* HueHTTPRequestTest */,
 				EFA913241E26C52F00F00D91 /* Products */,
+				1C7087C54DB07F233B545016 /* Pods */,
+				D33232CE1D717B0CA38250D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +86,7 @@
 			children = (
 				EFA913261E26C52F00F00D91 /* AppDelegate.swift */,
 				EFA913281E26C52F00F00D91 /* ViewController.swift */,
+				EFA913381E26D00F00F00D91 /* HueWrapper.swift */,
 				EFA9132A1E26C52F00F00D91 /* Main.storyboard */,
 				EFA9132D1E26C52F00F00D91 /* Assets.xcassets */,
 				EFA9132F1E26C52F00F00D91 /* LaunchScreen.storyboard */,
@@ -71,9 +102,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFA913351E26C52F00F00D91 /* Build configuration list for PBXNativeTarget "HueHTTPRequestTest" */;
 			buildPhases = (
+				01C92DD805A35EFC3AE0A37E /* [CP] Check Pods Manifest.lock */,
 				EFA9131F1E26C52F00F00D91 /* Sources */,
 				EFA913201E26C52F00F00D91 /* Frameworks */,
 				EFA913211E26C52F00F00D91 /* Resources */,
+				90BC1756C61EA1F481F5FB33 /* [CP] Embed Pods Frameworks */,
+				7D9D808266546627068FDECF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +166,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01C92DD805A35EFC3AE0A37E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7D9D808266546627068FDECF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HueHTTPRequestTest/Pods-HueHTTPRequestTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90BC1756C61EA1F481F5FB33 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HueHTTPRequestTest/Pods-HueHTTPRequestTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EFA9131F1E26C52F00F00D91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -139,6 +221,7 @@
 			files = (
 				EFA913291E26C52F00F00D91 /* ViewController.swift in Sources */,
 				EFA913271E26C52F00F00D91 /* AppDelegate.swift in Sources */,
+				EFA913391E26D00F00F00D91 /* HueWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +340,7 @@
 		};
 		EFA913361E26C52F00F00D91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57FB8FEEA9C3067B59A06AA2 /* Pods-HueHTTPRequestTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y38T3TH9N8;
@@ -270,6 +354,7 @@
 		};
 		EFA913371E26C52F00F00D91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39F59A8958A608FFF1D48DF1 /* Pods-HueHTTPRequestTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y38T3TH9N8;
@@ -300,6 +385,7 @@
 				EFA913371E26C52F00F00D91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

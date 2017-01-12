@@ -9,10 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // Bridge IP Address : 172.30.5.4
+    // Username : Woco7fXdtvyLUtOcMq7WuBesSSzYzTSJz1JYXFrT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let apiWrapper = HueWrapper()
+        
+        // get lights
+        apiWrapper.getLights() { result in
+            var dataToReturn = [String]()
+            for (key, _) in result {
+                dataToReturn.append(key)
+            }
+            
+            return dataToReturn
+        }
+        
+        // get groups
+        apiWrapper.getGroups() { result in
+            var dataToReturn = [String]()
+            for (key, _) in result {
+                dataToReturn.append(key)
+            }
+            
+            return dataToReturn
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +45,11 @@ class ViewController: UIViewController {
     }
 
 
+    
+    
+    
+    
+    
+    
 }
 
